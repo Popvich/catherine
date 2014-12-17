@@ -1,0 +1,25 @@
+一、在Windows上安装Git
+	msysgit是Windows版的Git，从http://msysgit.github.io/下载，然后按默认选项安装即可。
+	开始菜单里找到Git->Git Bash
+	$ git config --global user.name "Your Name"
+	$ git config --global user.email "email@example.com"
+二、创建版本库
+	$ mkdir learngit
+	$ cd learngit
+	$ pwd
+	$ git init
+	$ git add readme.txt
+	$ git commit -m "wrote a readme file"
+三、版本控制
+	$ git status
+	$ git diff readme.txt 
+	$ git log 
+	$ git log --pretty=oneline
+	$ git reset --hard HEAD^
+	$ git reset --hard HEAD^^
+	$ git reset --hard HEAD~100
+	$ git reset --hard 3628164
+	$ git reflog
+	$ git checkout -- readme.txt               //回复工作区修改
+	$ git reset HEAD readme.txt                //回复暂存区修改
+	
