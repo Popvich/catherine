@@ -1,0 +1,38 @@
+package com.mupowang.sort
+public class MergeSort(){
+
+  public sort(int[] a,int low,int high){
+    if(low < high){
+      int middle = (low + high)/2;
+      sort(a,low,middle);
+      sort(a,middle+1,high);
+      merge(a,low,middle,high);
+    }
+  }
+  public void merge(int[] a, int low,int middle,int high){
+    int[] temp = new int[high - low +1];
+    int tempIndex = 0;
+    int leftIndex = low;
+    int rightIndex = middle + 1;
+    //归并排序数组
+    while(leftIndex <= middle && rightIndex <= high){
+      if(a[leftIndex] < a[rightIndex]){
+        temp[tempIndex++] = a[leftIndex++];
+      }else{
+        temp[tempIndex++] = a[rightIndex++];
+      }
+    }
+    //若左边没排完，就继续
+    while(leftIndex <= middle){
+      temp[tempIndex++] = a[leftIndex++];
+    }
+    //若右边边没排完，就继续
+    while(rightIndex < high){
+       temp[tempIndex++] = a[rightIndex++];
+    }
+    //把中间数组拷贝回原数组
+    for(int i = low; i<= high;i++){
+      a[i] = temp[i - low];
+    }
+  }
+}
